@@ -91,6 +91,13 @@ public class MongoDBContainerTest {
     }
 
     @Test
+    public void supportsMongoDB_6_0_6() {
+        try (final MongoDBContainer mongoDBContainer = new MongoDBContainer(DockerImageName.parse("mongo:6.0.6"))) {
+            mongoDBContainer.start();
+        }
+    }
+
+    @Test
     public void shouldTestDatabaseName() {
         try (final MongoDBContainer mongoDBContainer = new MongoDBContainer(DockerImageName.parse("mongo:4.0.10"))) {
             mongoDBContainer.start();
